@@ -11,9 +11,9 @@ namespace arquivo.Controllers
     {
         public static List<Pessoa> lsPessoa = new List<Pessoa>();
         //alt center, criar um faslo banco de dados
-        public IActionResult index()
+        public IActionResult Index()
         {
-            return View();
+            return View(lsPessoa);
         }
 
         public IActionResult cadastrar()
@@ -24,6 +24,8 @@ namespace arquivo.Controllers
         public IActionResult salvar(Pessoa intem)
         {
             lsPessoa.Add(intem);
+            return RedirectToAction("Index");
+
 
             return View();
         }
